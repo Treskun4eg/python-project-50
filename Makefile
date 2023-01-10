@@ -12,4 +12,7 @@ package-install:
 
 make lint:
 	poetry run flake8 gendiff
+
+package-reinstal:
+	pip install --user --force-reinstall dist/*.whl
 .PHONI: install build publish reinstall
