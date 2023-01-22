@@ -7,3 +7,6 @@ dist/
 coverage.xml
 .pytest_cache/
 .vim
+.idea
+.DS_Store
+.idea/.DS_Store
