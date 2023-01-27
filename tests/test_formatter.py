@@ -1,32 +1,22 @@
-
+import json
+import pytest
 from gendiff.formatter import style_the_value
 from gendiff.formatter import get_string
-
-file1 = {
-    "host": "hexlet.io",
-    "timeout": 50,
-    "proxy": "123.234.53.22",
-    "follow": False,
-    "nested": {
-        "bool": True,
-        "None": None,
-        "string": "test string"
-        }
-    }
+from gendiff.formatter import format_to_strings
 
 
-test_dict = {
-    "proxy":
-        {
-            "key": "proxy",
-            "value": "123.234.53.22",
-            "operation": "added"
-        }
-}
+@pytest.fixture
+def open_file3():
+    return json.load(open('tests/fixtures/file3.json'))
 
 
-def test_style_the_value():
-    for key, value in file1.items():
+@pytest.fixture
+def open_file4():
+    return json.load(open('tests/fixtures/file4.json'))
+
+
+def test_style_the_value(open_file3):
+    for key, value in open_file3.items():
         if isinstance(value, dict):
             assert style_the_value(value, 1) == \
                    f'{"{"}\n' \
@@ -42,18 +32,53 @@ def test_style_the_value():
             assert style_the_value(value, 1) == str(value)
 
 
-def test_get_string():
-    for key, value in test_dict.items():
+def test_get_string(open_file4):
+    for key, value in open_file4.items():
         if value["operation"] == "added":
             assert get_string(value, "value", 1, "+ ") == \
                    f'  + {value["key"]}: {value["value"]}'
 
 
-#    def iterable_dict(dict, depth):
-#        new_str = ''
-#        for k, v in dict.items():
-#            result = style_the_value(v, depth + 1)
-#            new_str += f'\n{k}: {result}'
-#        return new_str
-#
-#    print(iterable_dict(file1, 1))
+def test_format_to_strings():
+    diff_result = {
+        'follow':
+            {
+                'key': 'follow',
+                'value': False,
+                'operation': 'deleted'
+            },
+        'host':
+            {
+                'key': 'host',
+                'value': 'hexlet.io',
+                'operation': 'unchanged'
+            },
+        'proxy':
+            {
+                'key': 'proxy',
+                'value': '123.234.53.22',
+                'operation': 'deleted'
+            },
+        'timeout':
+            {
+                'key': 'timeout',
+                'old': 50,
+                'new': 20,
+                'operation': 'changed'
+            },
+        'verbose':
+            {
+                'key': 'verbose',
+                'value': True,
+                'operation': 'added'
+            }
+    }
+    expected = '{\n' \
+               '  - follow: false\n' \
+               '    host: hexlet.io\n' \
+               '  - proxy: 123.234.53.22\n' \
+               '  - timeout: 50\n' \
+               '  + timeout: 20\n' \
+               '  + verbose: true\n' \
+               '}'
+    assert format_to_strings(diff_result) == expected
