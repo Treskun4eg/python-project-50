@@ -16,7 +16,7 @@ def compare_files(dict1, dict2):
     return added_key, deleted_key, common_key
 
 
-def generate_diff(path1, path2):
+def diff(path1, path2):
     dict1 = open_file(path1)
     dict2 = open_file(path2)
     keys = sorted(dict1.keys() | dict2.keys())
@@ -44,7 +44,7 @@ def generate_diff(path1, path2):
                   isinstance(dict2[key], dict)]
                  ):
             description = {'key': key,
-                           'value': generate_diff(dict1[key], dict2[key]),
+                           'value': diff(dict1[key], dict2[key]),
                            'operation': 'nested'}
             new_dict[key] = description
         else:
