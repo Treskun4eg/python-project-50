@@ -19,6 +19,6 @@ make lint:
 selfcheck:
 	poetry check
 
-reinstal:
+package-reinstal:
 	pip install --user --force-reinstall dist/*.whl
 .PHONI: install build publish reinstall selfcheck check
