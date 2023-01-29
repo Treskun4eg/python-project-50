@@ -1,4 +1,4 @@
-from gendiff.generate_diff import gen_diff
+from gendiff.generate_diff import generate_diff
 
 
 def test_gen_diff():
@@ -12,4 +12,4 @@ def test_gen_diff():
                '  + timeout: 20\n' \
                '  + verbose: true\n' \
                '}'
-    assert gen_diff(path1, path2) == expected
+    assert generate_diff(path1, path2) == expected

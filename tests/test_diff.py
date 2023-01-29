@@ -2,7 +2,7 @@ import json
 import pytest
 from gendiff.diff import open_file
 from gendiff.diff import compare_files
-from gendiff.diff import generate_diff
+from gendiff.diff import diff
 
 
 @pytest.fixture
@@ -67,4 +67,4 @@ def test_generate_diff():
             }
     }
 
-    assert generate_diff(path1, path2) == expected_tree
+    assert diff(path1, path2) == expected_tree
