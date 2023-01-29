@@ -9,4 +9,5 @@ coverage.xml
 .vim
 .idea
 .DS_Store
+coverage.xml
 .idea/.DS_Store
