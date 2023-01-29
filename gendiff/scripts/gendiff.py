@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from gendiff.generate_diff import gen_diff
+from gendiff.generate_diff import generate_diff
 import argparse
 
 
@@ -12,7 +12,7 @@ def main():
     parser.add_argument('-f', '--format',
                         help='set format of output')
     args = parser.parse_args()
-    print(gen_diff(args.first_file, args.second_file))
+    print(generate_diff(args.first_file, args.second_file))
 
 
 if __name__ == '__main__':
