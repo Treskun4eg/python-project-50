@@ -4,6 +4,9 @@ install:
 build:
 	poetry build
 
+test-coverage:
+	poetry run pytest --cov=gendiff tests/ --cov-report xml
+
 publish:
 	poetry publish --dry-run
 
@@ -13,6 +16,9 @@ package-install:
 make lint:
 	poetry run flake8 gendiff
 
-package-reinstal:
+selfcheck:
+	poetry check
+
+reinstal:
 	pip install --user --force-reinstall dist/*.whl
-.PHONI: install build publish reinstall
+.PHONI: install build publish reinstall selfcheck check
