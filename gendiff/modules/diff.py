@@ -1,14 +1,3 @@
-import json
-import pathlib
-
-
-def open_file(path):
-    dir_file = pathlib.Path(path)
-    open_file1 = open(dir_file)
-    load_file = json.load(open_file1)
-    return load_file
-
-
 def compare_files(dict1, dict2):
     added_key = dict2.keys() - dict1.keys()
     deleted_key = dict1.keys() - dict2.keys()
@@ -16,9 +5,7 @@ def compare_files(dict1, dict2):
     return added_key, deleted_key, common_key
 
 
-def diff(path1, path2):
-    dict1 = open_file(path1)
-    dict2 = open_file(path2)
+def diff(dict1, dict2):
     keys = sorted(dict1.keys() | dict2.keys())
     added_key, deleted_key, common_key = compare_files(dict1, dict2)
     new_dict = {}
