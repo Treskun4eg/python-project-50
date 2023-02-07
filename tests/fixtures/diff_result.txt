@@ -1,0 +1,1 @@
+{'follow': {'key': 'follow', 'value': False, 'operation': 'deleted'}, 'host': {'key': 'host', 'value': 'hexlet.io', 'operation': 'unchanged'}, 'proxy': {'key': 'proxy', 'value': '123.234.53.22', 'operation': 'deleted'}, 'timeout': {'key': 'timeout', 'old': 50, 'new': 20, 'operation': 'changed'}, 'verbose': {'key': 'verbose', 'value': True, 'operation': 'added'}}
