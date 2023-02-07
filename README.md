@@ -6,3 +6,5 @@
 
 ## Askinema with an example of how the package works:
 [![asciicast](https://asciinema.org/a/555594.svg)](https://asciinema.org/a/555594)  
+[![asciicast](https://asciinema.org/a/557868.svg)](https://asciinema.org/a/557868)
+[![asciicast](https://asciinema.org/a/558097.svg)](https://asciinema.org/a/558097)
