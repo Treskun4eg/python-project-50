@@ -18,7 +18,8 @@ def plain_format(diff_result: dict): # noqa C901
             current_path = f"{path}{value['key']}"
             if value['operation'] == 'added':
                 result += f"Property '{current_path}'" \
-                          f" was added with value: {plain_value(value['value'])}\n"
+                          f" was added with value:" \
+                          f" {plain_value(value['value'])}\n"
             elif value['operation'] == 'changed':
                 result += f"Property '{current_path}' was updated." \
                           f" From {plain_value(value['old'])}" \
