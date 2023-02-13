@@ -1,8 +1,14 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "The utility that shows differences between two files"
 authors = ["Treskun4eg <wagamamanowelli@gmail.com>"]
+repository = "https://github.com/Treskun4eg/python-project-50"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 packages = [
   { include = "gendiff" },
 ]
