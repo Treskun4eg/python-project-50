@@ -25,7 +25,7 @@ def plain_format(diff_result: dict): # noqa C901
                           f" From {plain_value(value['old'])}" \
                           f" to {plain_value(value['new'])}\n"
             elif value['operation'] == 'deleted':
-                result += f"Property {current_path} was removed\n"
+                result += f"Property '{current_path}' was removed\n"
             elif value['operation'] == 'nested':
                 result += walk(value['value'], current_path + '.') + '\n'
         return result[:-1]
