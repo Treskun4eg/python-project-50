@@ -10,7 +10,7 @@ The package contains the program that outputs the differences between two files 
 
 * Git clone:
 ```
-git clone https://github.com/Treskun4eg/python-project-49.git
+git clone https://github.com/Treskun4eg/python-project-50.git
 ```
 * Installation Poetry:
 ```
