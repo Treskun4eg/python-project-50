@@ -1,13 +1,13 @@
 import ast
 import pytest
-from gendiff.modules.diff import compare_files, diff
+from gendiff.modules.diff import common_and_different, diff
 
 
 def test_compare_files(file1, file2):
-    added_key, deleted_key, common_key = compare_files(file1, file2)
-    assert added_key == {"d"}
-    assert deleted_key == {"c"}
-    assert common_key == {"a", "b"}
+    added_keys, deleted_keys, common_keys = common_and_different(file1, file2)
+    assert added_keys == {"d"}
+    assert deleted_keys == {"c"}
+    assert common_keys == {"a", "b"}
 
 
 parameters = [('file1', 'file2', 'tests/fixtures/diff_result_simple.txt'),
